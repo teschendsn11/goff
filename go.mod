@@ -1,4 +1,4 @@
-module github.com/Forestmb/goff
+module github.com/teschendsn11/goff
 
 go 1.18
 

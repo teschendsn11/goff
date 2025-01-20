@@ -1,7 +1,7 @@
 // Command debug starts a terminal based fantasy client using the OAuth
 // consumer provided by package goff.
 //
-//     Usage: go run debug/debug.go --clientKey=<key> --clientSecret=<secret>
+//	Usage: go run debug/debug.go --clientKey=<key> --clientSecret=<secret>
 package main
 
 import (
@@ -12,7 +12,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/Forestmb/goff"
+	"github.com/teschendsn11/goff"
 	"golang.org/x/oauth2"
 )
 

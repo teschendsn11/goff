@@ -6,34 +6,34 @@
 // API request. The steps required to get a new client up and running with this
 // package are as follows:
 //
-//    1. Obtain an API key for your application.
-//         See https://developer.apps.yahoo.com/dashboard/createKey.html
-//    2. Call goff.GetOAuth2Config(clientId, clientSecret, redirectURL) using
-//       your client's information.
-//    3. Use oath2.Config to obtain an oauth2.Token.
-//         See https://godoc.org/golang.org/x/oauth2#example-Config
-//    4. Call oauth2Config.Client(ctx, token) with the config and access token.
-//    5. Pass the returned http.Client into goff.NewClient.
-//    6. Use the returned goff.Client to make direct API requests with
-//       GetFantasyContent(url) or through one of the convenience methods.
-//         See http://developer.yahoo.com/fantasysports/guide/ for the type
-//         requests that can be made.
+//  1. Obtain an API key for your application.
+//     See https://developer.apps.yahoo.com/dashboard/createKey.html
+//  2. Call goff.GetOAuth2Config(clientId, clientSecret, redirectURL) using
+//     your client's information.
+//  3. Use oath2.Config to obtain an oauth2.Token.
+//     See https://godoc.org/golang.org/x/oauth2#example-Config
+//  4. Call oauth2Config.Client(ctx, token) with the config and access token.
+//  5. Pass the returned http.Client into goff.NewClient.
+//  6. Use the returned goff.Client to make direct API requests with
+//     GetFantasyContent(url) or through one of the convenience methods.
+//     See http://developer.yahoo.com/fantasysports/guide/ for the type
+//     requests that can be made.
 //
 // To use OAuth 1.0 for authentication, use:
 //
-//    1. Obtain an API key for your application.
-//         See https://developer.apps.yahoo.com/dashboard/createKey.html
-//    2. Call goff.GetConsumer(clientID, clientSecret) using your client's
-//       information.
-//    3. Use oauth.Consumer to obtain an oauth.AccessToken.
-//         See https://godoc.org/github.com/mrjones/oauth
-//    4. Call oauthConsumer.MakeHttpClient(accessToken) with the consumer and
-//       access token.
-//    5. Pass the returned http.Client into goff.NewClient.
-//    6. Use the returned goff.Client to make direct API requests with
-//       GetFantasyContent(url) or through one of the convenience methods.
-//         See http://developer.yahoo.com/fantasysports/guide/ for the type
-//         requests that can be made.
+//  1. Obtain an API key for your application.
+//     See https://developer.apps.yahoo.com/dashboard/createKey.html
+//  2. Call goff.GetConsumer(clientID, clientSecret) using your client's
+//     information.
+//  3. Use oauth.Consumer to obtain an oauth.AccessToken.
+//     See https://godoc.org/github.com/mrjones/oauth
+//  4. Call oauthConsumer.MakeHttpClient(accessToken) with the consumer and
+//     access token.
+//  5. Pass the returned http.Client into goff.NewClient.
+//  6. Use the returned goff.Client to make direct API requests with
+//     GetFantasyContent(url) or through one of the convenience methods.
+//     See http://developer.yahoo.com/fantasysports/guide/ for the type
+//     requests that can be made.
 //
 // The goff client is currently in early stage development and the API is
 // subject to change at any moment.
@@ -462,14 +462,13 @@ func (l *LRUCache) Get(url string, time time.Time) (content *FantasyContent, ok 
 //
 // The created keys have the following format:
 //
-//    <client-id>:<originalKey>:<period>
+//	<client-id>:<originalKey>:<period>
 //
 // Given a client with ID "client-id-01", original key of "key-01", a current
 // time of "08/17/2014 1:21pm", and a maximum cache duration of 1 hour, this
 // will generate the following key:
 //
-//    client-id-01:key-01:391189
-//
+//	client-id-01:key-01:391189
 func (l *LRUCache) getKey(originalKey string, time time.Time) string {
 	period := time.Unix() / l.DurationSeconds
 	return fmt.Sprintf("%s:%s:%d", l.ClientID, originalKey, period)
