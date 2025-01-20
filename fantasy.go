@@ -43,7 +43,7 @@ import (
 	"encoding/xml"
 	"errors"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"strconv"
 	"strings"
@@ -510,7 +510,7 @@ func (p *xmlContentProvider) Get(url string) (*FantasyContent, error) {
 	}
 	defer response.Body.Close()
 
-	bits, err := ioutil.ReadAll(response.Body)
+	bits, err := io.ReadAll(response.Body)
 	if err != nil {
 		return nil, err
 	}
